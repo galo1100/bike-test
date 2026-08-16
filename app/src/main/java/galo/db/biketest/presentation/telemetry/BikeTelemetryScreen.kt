@@ -149,7 +149,7 @@ internal fun BikeTelemetryError(
 @PreviewLightDark
 @Composable
 private fun BikeTelemetryScreenBikeTelemetryContentPreview() {
-    BikeTestTheme(dynamicColor = false) {
+    BikeTestTheme {
         BikeTelemetryContent(
             telemetry = BikeTelemetryPreviewData.telemetry,
         )
@@ -159,7 +159,7 @@ private fun BikeTelemetryScreenBikeTelemetryContentPreview() {
 @PreviewLightDark
 @Composable
 private fun BikeTelemetryScreenBikeTelemetryLoadingPreview() {
-    BikeTestTheme(dynamicColor = false) {
+    BikeTestTheme {
         BikeTelemetryLoading(modifier = Modifier.fillMaxSize())
     }
 }
@@ -167,7 +167,7 @@ private fun BikeTelemetryScreenBikeTelemetryLoadingPreview() {
 @PreviewLightDark
 @Composable
 private fun BikeTelemetryScreenBikeTelemetryErrorPreview() {
-    BikeTestTheme(dynamicColor = false) {
+    BikeTestTheme {
         BikeTelemetryError(
             messageRes = R.string.telemetry_error_unreachable,
             onRetry = {},

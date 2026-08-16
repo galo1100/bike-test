@@ -29,7 +29,7 @@ class BikeTelemetryScreenTest {
     fun showsTheSnapshot() {
         // Given
         composeRule.setContent {
-            BikeTestTheme(dynamicColor = false) {
+            BikeTestTheme {
                 BikeTelemetryContent(telemetry = BikeTelemetryPreviewData.telemetry)
             }
         }
@@ -46,7 +46,7 @@ class BikeTelemetryScreenTest {
     fun showsTheEmptyDiagnosticsStateWhenTheBikeHasNothingToReport() {
         // Given
         composeRule.setContent {
-            BikeTestTheme(dynamicColor = false) {
+            BikeTestTheme {
                 BikeTelemetryContent(
                     telemetry = BikeTelemetryPreviewData.telemetryWithoutDiagnostics,
                 )
@@ -64,7 +64,7 @@ class BikeTelemetryScreenTest {
         // Given
         var retries = 0
         composeRule.setContent {
-            BikeTestTheme(dynamicColor = false) {
+            BikeTestTheme {
                 BikeTelemetryError(
                     messageRes = R.string.telemetry_error_unreachable,
                     onRetry = { retries++ },

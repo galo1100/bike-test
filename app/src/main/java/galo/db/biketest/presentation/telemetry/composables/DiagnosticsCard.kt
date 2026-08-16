@@ -71,7 +71,7 @@ private fun NoDiagnostics(modifier: Modifier = Modifier) {
         Icon(
             painter = painterResource(R.drawable.ic_check_circle),
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
+            tint = MaterialTheme.colorScheme.tertiary,
         )
         Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Text(
