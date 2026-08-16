@@ -1,3 +1,55 @@
 <resources>
     <string name="app_name">Bike test</string>
+
+    <!-- Screen chrome -->
+    <string name="telemetry_title">Bike telemetry</string>
+    <string name="telemetry_retry">Try again</string>
+
+    <!-- Bike -->
+    <string name="telemetry_bike_image">Bike</string>
+    <string name="telemetry_firmware">Firmware %1$s</string>
+    <string name="telemetry_updated_at">Updated %1$s</string>
+
+    <!-- Battery -->
+    <string name="telemetry_battery">Battery</string>
+    <string name="telemetry_battery_range">Range</string>
+    <string name="telemetry_battery_temperature">Temperature</string>
+    <string name="telemetry_charging_state_charging">Charging</string>
+    <string name="telemetry_charging_state_discharging">Discharging</string>
+    <string name="telemetry_charging_state_unknown">Unknown state</string>
+
+    <!-- Session -->
+    <string name="telemetry_session">Session</string>
+    <string name="telemetry_session_duration">Duration</string>
+    <string name="telemetry_session_distance">Distance</string>
+    <string name="telemetry_session_max_speed">Max speed</string>
+
+    <!-- Power and ride settings -->
+    <string name="telemetry_power">Power</string>
+    <string name="telemetry_power_of_max">of %1$s</string>
+    <string name="telemetry_motor_temperature">Motor temperature</string>
+    <string name="telemetry_ride_settings">Ride settings</string>
+    <string name="telemetry_engine_braking">Engine braking</string>
+    <string name="telemetry_regen">Regen</string>
+    <string name="telemetry_power_map_enduro">Enduro</string>
+    <string name="telemetry_power_map_motocross">Motocross</string>
+    <string name="telemetry_power_map_supermoto">Supermoto</string>
+    <string name="telemetry_power_map_unknown">Unknown map</string>
+
+    <!-- Diagnostics -->
+    <string name="telemetry_diagnostics">Diagnostics</string>
+    <string name="telemetry_diagnostics_empty_title">All systems nominal</string>
+    <string name="telemetry_diagnostics_empty_message">No active warnings or fault codes.</string>
+    <string name="telemetry_fault_codes">Fault codes</string>
+    <string name="telemetry_severity_info">Info</string>
+    <string name="telemetry_severity_warning">Warning</string>
+    <string name="telemetry_severity_critical">Critical</string>
+    <string name="telemetry_severity_unknown">Unknown</string>
+
+    <!-- Failures -->
+    <string name="telemetry_error_unreachable">Can\'t reach the bike. Check that it\'s powered on and nearby.</string>
+    <string name="telemetry_error_unavailable">The bike can\'t share a snapshot right now. Try again in a moment.</string>
+    <string name="telemetry_error_invalid_snapshot">This app can\'t read the bike\'s telemetry. Check for an app update.</string>
+    <string name="telemetry_error_unknown">Something went wrong reading the telemetry.</string>
+
 </resources>

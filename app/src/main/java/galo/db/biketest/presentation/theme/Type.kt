@@ -1,4 +1,4 @@
-package galo.db.biketest.ui.theme
+package galo.db.biketest.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

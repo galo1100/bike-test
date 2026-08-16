@@ -1,7 +1,7 @@
 package galo.db.biketest.data
 
 import galo.db.biketest.di.NetworkModule
-import galo.db.biketest.domain.error.TelemetryError
+import galo.db.biketest.domain.error.BikeTelemetryError
 import galo.db.biketest.fixtures.PayloadReader.readPayload
 import galo.db.biketest.fixtures.PayloadReader.respondJson
 import galo.db.biketest.fixtures.bikeTelemetry
@@ -55,7 +55,7 @@ class GetBikeTelemetryImplTest {
         val result = getBikeTelemetry()
 
         // Then
-        assertIs<TelemetryError.Unavailable>(result.exceptionOrNull())
+        assertIs<BikeTelemetryError.Unavailable>(result.exceptionOrNull())
     }
 
     @Test
@@ -67,7 +67,7 @@ class GetBikeTelemetryImplTest {
         val result = getBikeTelemetry()
 
         // Then
-        assertIs<TelemetryError.InvalidSnapshot>(result.exceptionOrNull())
+        assertIs<BikeTelemetryError.InvalidSnapshot>(result.exceptionOrNull())
     }
 
     @Test
@@ -79,7 +79,7 @@ class GetBikeTelemetryImplTest {
         val result = getBikeTelemetry()
 
         // Then
-        assertIs<TelemetryError.InvalidSnapshot>(result.exceptionOrNull())
+        assertIs<BikeTelemetryError.InvalidSnapshot>(result.exceptionOrNull())
     }
 
     @Test
@@ -91,7 +91,7 @@ class GetBikeTelemetryImplTest {
         val result = getBikeTelemetry()
 
         // Then
-        assertIs<TelemetryError.Unreachable>(result.exceptionOrNull())
+        assertIs<BikeTelemetryError.Unreachable>(result.exceptionOrNull())
     }
 
     @Test
@@ -103,7 +103,7 @@ class GetBikeTelemetryImplTest {
         val result = getBikeTelemetry()
 
         // Then
-        assertIs<TelemetryError.Unknown>(result.exceptionOrNull())
+        assertIs<BikeTelemetryError.Unknown>(result.exceptionOrNull())
     }
 
     @Test

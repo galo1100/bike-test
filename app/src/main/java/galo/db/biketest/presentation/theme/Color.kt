@@ -1,4 +1,4 @@
-package galo.db.biketest.ui.theme
+package galo.db.biketest.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
