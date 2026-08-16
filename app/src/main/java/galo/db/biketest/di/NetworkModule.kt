@@ -4,9 +4,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import galo.db.biketest.data.remote.mock.MockTelemetryConfig
-import galo.db.biketest.data.remote.mock.TelemetrySnapshotAsset
-import galo.db.biketest.data.remote.mock.mockTelemetryEngine
+import galo.db.biketest.data.remote.mock.MockBikeTelemetryConfig
+import galo.db.biketest.data.remote.mock.BikeTelemetrySnapshotAsset
+import galo.db.biketest.data.remote.mock.mockBikeTelemetryEngine
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -26,14 +26,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMockTelemetryConfig(): MockTelemetryConfig = MockTelemetryConfig()
+    fun provideMockBikeTelemetryConfig(): MockBikeTelemetryConfig = MockBikeTelemetryConfig()
 
     @Provides
     @Singleton
     fun provideHttpClientEngine(
-        config: MockTelemetryConfig,
-        snapshotAsset: TelemetrySnapshotAsset,
-    ): HttpClientEngine = mockTelemetryEngine(config, snapshotAsset::read)
+        config: MockBikeTelemetryConfig,
+        snapshotAsset: BikeTelemetrySnapshotAsset,
+    ): HttpClientEngine = mockBikeTelemetryEngine(config, snapshotAsset::read)
 
     @Provides
     @Singleton

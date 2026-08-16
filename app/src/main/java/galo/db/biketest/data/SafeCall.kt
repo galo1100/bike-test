@@ -1,6 +1,6 @@
 package galo.db.biketest.data
 
-import galo.db.biketest.data.mapper.toTelemetryError
+import galo.db.biketest.data.mapper.toBikeTelemetryError
 import kotlin.coroutines.cancellation.CancellationException
 
 internal suspend fun <T> safeCall(block: suspend () -> T): Result<T> = try {
@@ -8,5 +8,5 @@ internal suspend fun <T> safeCall(block: suspend () -> T): Result<T> = try {
 } catch (cancellation: CancellationException) {
     throw cancellation
 } catch (throwable: Throwable) {
-    Result.failure(throwable.toTelemetryError())
+    Result.failure(throwable.toBikeTelemetryError())
 }

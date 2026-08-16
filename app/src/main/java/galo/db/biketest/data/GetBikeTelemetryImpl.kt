@@ -2,7 +2,7 @@ package galo.db.biketest.data
 
 import galo.db.biketest.data.dto.BikeTelemetryDto
 import galo.db.biketest.data.mapper.toDomain
-import galo.db.biketest.data.remote.TelemetryApi
+import galo.db.biketest.data.remote.BikeTelemetryApi
 import galo.db.biketest.di.DispatcherIo
 import galo.db.biketest.domain.GetBikeTelemetry
 import galo.db.biketest.domain.model.BikeTelemetry
@@ -19,6 +19,6 @@ class GetBikeTelemetryImpl @Inject constructor(
 ) : GetBikeTelemetry {
 
     override suspend fun invoke(): Result<BikeTelemetry> = withContext(dispatcher) {
-        safeCall { client.get(TelemetryApi.TELEMETRY_URL).body<BikeTelemetryDto>().toDomain() }
+        safeCall { client.get(BikeTelemetryApi.TELEMETRY_URL).body<BikeTelemetryDto>().toDomain() }
     }
 }

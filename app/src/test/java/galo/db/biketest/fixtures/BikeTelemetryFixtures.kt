@@ -20,6 +20,12 @@ import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.Instant
 
+internal const val SNAPSHOT_TIMESTAMP = "2025-05-19T10:32:45Z"
+
+internal const val SNAPSHOT_IMAGE_URL =
+    "https://assets.starkfuture.com/frontend-assets/mx-product-images/" +
+        "SMX1_side_stand_red_handbrake_enduro18_nosidestand.webp"
+
 internal fun bikeTelemetry(
     bike: Bike = bike(),
     timestamp: Instant = Instant.parse(SNAPSHOT_TIMESTAMP),

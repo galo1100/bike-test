@@ -4,12 +4,12 @@ import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 
 
-data class MockTelemetryConfig(
-    val scenario: MockTelemetryScenario = MockTelemetryScenario.SUCCESS,
+data class MockBikeTelemetryConfig(
+    val scenario: MockBikeTelemetryScenario = MockBikeTelemetryScenario.SUCCESS,
     val responseDelay: Duration = 600.milliseconds,
 )
 
-enum class MockTelemetryScenario {
+enum class MockBikeTelemetryScenario {
     SUCCESS,
     HTTP_ERROR,
     MALFORMED,

@@ -1,6 +1,6 @@
 package galo.db.biketest.data.remote.mock
 
-import galo.db.biketest.data.remote.TelemetryApi
+import galo.db.biketest.data.remote.BikeTelemetryApi
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.MockRequestHandleScope
 import io.ktor.client.engine.mock.respond
@@ -14,19 +14,19 @@ import kotlinx.coroutines.delay
 
 private const val MALFORMED_BODY = """{"bike":{"model":"Stark VARG MX 1.2","""
 
-private val telemetryPath = Url(TelemetryApi.TELEMETRY_URL).encodedPath
+private val bikeTelemetryPath = Url(BikeTelemetryApi.TELEMETRY_URL).encodedPath
 
-fun mockTelemetryEngine(
-    config: MockTelemetryConfig,
+fun mockBikeTelemetryEngine(
+    config: MockBikeTelemetryConfig,
     snapshot: () -> String,
 ): MockEngine = MockEngine { request ->
     delay(config.responseDelay)
     when {
-        request.url.encodedPath != telemetryPath -> respondError(HttpStatusCode.NotFound)
-        config.scenario == MockTelemetryScenario.HTTP_ERROR ->
+        request.url.encodedPath != bikeTelemetryPath -> respondError(HttpStatusCode.NotFound)
+        config.scenario == MockBikeTelemetryScenario.HTTP_ERROR ->
             respondError(HttpStatusCode.ServiceUnavailable)
 
-        config.scenario == MockTelemetryScenario.MALFORMED -> respondJson(MALFORMED_BODY)
+        config.scenario == MockBikeTelemetryScenario.MALFORMED -> respondJson(MALFORMED_BODY)
         else -> respondJson(snapshot())
     }
 }
