@@ -1,6 +1,7 @@
 package galo.db.biketest.presentation.telemetry.mapper
 
 import galo.db.biketest.R
+import galo.db.biketest.domain.model.BikeTelemetry
 import galo.db.biketest.domain.model.PowerMap
 import galo.db.biketest.domain.model.Severity
 import galo.db.biketest.presentation.telemetry.entities.SeverityUi
@@ -22,9 +23,9 @@ import kotlin.time.Duration.Companion.seconds
 
 class BikeTelemetryUiMapperTest {
 
-    private val mapper = BikeTelemetryUiMapper(
+    private fun BikeTelemetry.toUiModel() = toUiModel(
         locale = Locale.US,
-        zoneId = ZoneId.of("UTC"),
+        zoneId = ZoneId.of("UTC")
     )
 
     @Test
@@ -33,7 +34,7 @@ class BikeTelemetryUiMapperTest {
         val telemetry = bikeTelemetry()
 
         // When
-        val result = mapper.map(telemetry)
+        val result = telemetry.toUiModel()
 
         // Then
         assertEquals(bikeTelemetryUiModel(), result)
@@ -45,7 +46,7 @@ class BikeTelemetryUiMapperTest {
         val telemetry = bikeTelemetry(session = session(duration = 750.seconds))
 
         // When
-        val result = mapper.map(telemetry)
+        val result = telemetry.toUiModel()
 
         // Then
         assertEquals(sessionUi(duration = "12m 30s"), result.session)
@@ -59,7 +60,7 @@ class BikeTelemetryUiMapperTest {
         )
 
         // When
-        val result = mapper.map(telemetry)
+        val result = telemetry.toUiModel()
 
         // Then
         assertEquals(true, result.diagnostics.isEmpty)
@@ -73,7 +74,7 @@ class BikeTelemetryUiMapperTest {
         )
 
         // When
-        val result = mapper.map(telemetry)
+        val result = telemetry.toUiModel()
 
         // Then
         assertEquals(
@@ -88,7 +89,7 @@ class BikeTelemetryUiMapperTest {
         val telemetry = bikeTelemetry(rideSettings = rideSettings(powerMap = PowerMap.UNKNOWN))
 
         // When
-        val result = mapper.map(telemetry)
+        val result = telemetry.toUiModel()
 
         // Then
         assertEquals(powerUi(powerMapRes = R.string.telemetry_power_map_unknown), result.power)
@@ -102,7 +103,7 @@ class BikeTelemetryUiMapperTest {
         )
 
         // When
-        val result = mapper.map(telemetry)
+        val result = telemetry.toUiModel()
 
         // Then
         assertEquals(

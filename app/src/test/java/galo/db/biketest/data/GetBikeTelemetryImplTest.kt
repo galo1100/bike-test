@@ -2,8 +2,8 @@ package galo.db.biketest.data
 
 import galo.db.biketest.di.NetworkModule
 import galo.db.biketest.domain.error.BikeTelemetryError
-import galo.db.biketest.fixtures.PayloadReader.readPayload
-import galo.db.biketest.fixtures.PayloadReader.respondJson
+import galo.db.biketest.fixtures.MockResponses.readPayload
+import galo.db.biketest.fixtures.MockResponses.respondJson
 import galo.db.biketest.fixtures.bikeTelemetry
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.MockRequestHandler

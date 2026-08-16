@@ -7,7 +7,7 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
 
-object PayloadReader {
+object MockResponses {
 
     internal fun MockRequestHandleScope.respondJson(body: String) = respond(
         content = body,
@@ -17,7 +17,7 @@ object PayloadReader {
 
     internal fun readPayload(fileName: String): String {
         val path = "/telemetry/$fileName"
-        val stream = PayloadReader::class.java.getResourceAsStream(path)
+        val stream = MockResponses::class.java.getResourceAsStream(path)
             ?: error("Missing test payload: $path")
         return stream.bufferedReader().use { it.readText() }
     }

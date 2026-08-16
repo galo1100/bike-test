@@ -2,21 +2,19 @@ package galo.db.biketest.presentation.telemetry
 
 import galo.db.biketest.R
 import galo.db.biketest.domain.error.BikeTelemetryError
+import galo.db.biketest.fixtures.DefaultLocaleRule
 import galo.db.biketest.fixtures.FakeGetBikeTelemetry
 import galo.db.biketest.fixtures.MainDispatcherRule
 import galo.db.biketest.fixtures.bikeTelemetry
 import galo.db.biketest.fixtures.bikeTelemetryUiModel
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryAction
-import galo.db.biketest.presentation.telemetry.mapper.BikeTelemetryUiMapper
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 import java.io.IOException
-import java.time.ZoneId
-import java.util.Locale
 import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -25,14 +23,12 @@ class BikeTelemetryViewModelTest {
     @get:Rule
     internal val mainDispatcherRule = MainDispatcherRule()
 
+    @get:Rule
+    internal val defaultLocaleRule = DefaultLocaleRule()
+
     private val getBikeTelemetry = FakeGetBikeTelemetry()
 
-    private val uiMapper = BikeTelemetryUiMapper(locale = Locale.US, zoneId = ZoneId.of("UTC"))
-
-    private fun viewModel() = BikeTelemetryViewModel(
-        getBikeTelemetry = getBikeTelemetry,
-        uiMapper = uiMapper,
-    )
+    private fun viewModel() = BikeTelemetryViewModel(getBikeTelemetry = getBikeTelemetry)
 
     @Test
     fun `is loading while the first snapshot is in flight`() = runTest(mainDispatcherRule.testDispatcher) {
