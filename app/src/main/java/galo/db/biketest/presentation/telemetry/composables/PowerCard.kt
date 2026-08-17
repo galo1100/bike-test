@@ -63,7 +63,6 @@ internal fun PowerCard(
     }
 }
 
-/** Private: the two ride settings above are its only callers. */
 @Composable
 private fun LabelledProgress(
     label: String,

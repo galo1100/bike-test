@@ -67,7 +67,6 @@ data class Session(
     val maxSpeed: KilometersPerHour,
 )
 
-
 data class Diagnostics(
     val faultCodes: List<String>,
     val warnings: List<Warning>,
