@@ -1,3 +1,5 @@
+@file:OptIn(DelicateCoilApi::class)
+
 package galo.db.biketest.presentation.telemetry
 
 import androidx.compose.ui.test.assertIsDisplayed
@@ -9,9 +11,16 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import coil3.ColorImage
+import coil3.ImageLoader
+import coil3.SingletonImageLoader
+import coil3.annotation.DelicateCoilApi
+import coil3.test.FakeImageLoaderEngine
 import galo.db.biketest.R
 import galo.db.biketest.presentation.telemetry.preview.BikeTelemetryPreviewData
 import galo.db.biketest.presentation.theme.BikeTestTheme
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,6 +33,22 @@ class BikeTelemetryScreenTest {
     val composeRule = createComposeRule()
 
     private val context = InstrumentationRegistry.getInstrumentation().targetContext
+
+    @Before
+    fun installFakeImageLoader() {
+        val engine = FakeImageLoaderEngine.Builder()
+            .default(ColorImage())
+            .build()
+        val imageLoader = ImageLoader.Builder(context)
+            .components { add(engine) }
+            .build()
+        SingletonImageLoader.setUnsafe(imageLoader)
+    }
+
+    @After
+    fun resetImageLoader() {
+        SingletonImageLoader.reset()
+    }
 
     @Test
     fun showsTheSnapshot() {
