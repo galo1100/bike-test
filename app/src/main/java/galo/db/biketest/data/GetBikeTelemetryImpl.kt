@@ -3,7 +3,7 @@ package galo.db.biketest.data
 import galo.db.biketest.data.dto.BikeTelemetryDto
 import galo.db.biketest.data.mapper.toDomain
 import galo.db.biketest.data.remote.BikeTelemetryApi
-import galo.db.biketest.di.DispatcherIo
+import galo.db.biketest.di.DispatcherDefault
 import galo.db.biketest.domain.GetBikeTelemetry
 import galo.db.biketest.domain.model.BikeTelemetry
 import io.ktor.client.HttpClient
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class GetBikeTelemetryImpl @Inject constructor(
     private val client: HttpClient,
-    @DispatcherIo private val dispatcher: CoroutineDispatcher,
+    @DispatcherDefault private val dispatcher: CoroutineDispatcher,
 ) : GetBikeTelemetry {
 
     override suspend fun invoke(): Result<BikeTelemetry> = withContext(dispatcher) {
