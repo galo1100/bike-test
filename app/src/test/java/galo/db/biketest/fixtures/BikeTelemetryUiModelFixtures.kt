@@ -2,12 +2,12 @@ package galo.db.biketest.fixtures
 
 import galo.db.biketest.R
 import galo.db.biketest.presentation.telemetry.entities.BatteryUi
+import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryUiModel
 import galo.db.biketest.presentation.telemetry.entities.BikeUi
 import galo.db.biketest.presentation.telemetry.entities.DiagnosticsUi
 import galo.db.biketest.presentation.telemetry.entities.PowerUi
 import galo.db.biketest.presentation.telemetry.entities.SessionUi
 import galo.db.biketest.presentation.telemetry.entities.SeverityUi
-import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryUiModel
 import galo.db.biketest.presentation.telemetry.entities.WarningUi
 import kotlinx.collections.immutable.toImmutableList
 

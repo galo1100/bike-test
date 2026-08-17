@@ -4,17 +4,17 @@ import galo.db.biketest.R
 import galo.db.biketest.domain.model.BikeTelemetry
 import galo.db.biketest.domain.model.PowerMap
 import galo.db.biketest.domain.model.Severity
-import galo.db.biketest.presentation.telemetry.entities.SeverityUi
 import galo.db.biketest.fixtures.bikeTelemetry
+import galo.db.biketest.fixtures.bikeTelemetryUiModel
 import galo.db.biketest.fixtures.diagnostics
 import galo.db.biketest.fixtures.diagnosticsUi
 import galo.db.biketest.fixtures.powerUi
 import galo.db.biketest.fixtures.rideSettings
 import galo.db.biketest.fixtures.session
 import galo.db.biketest.fixtures.sessionUi
-import galo.db.biketest.fixtures.bikeTelemetryUiModel
 import galo.db.biketest.fixtures.warning
 import galo.db.biketest.fixtures.warningUi
+import galo.db.biketest.presentation.telemetry.entities.SeverityUi
 import org.junit.Test
 import java.time.ZoneId
 import java.util.Locale
@@ -25,7 +25,7 @@ class BikeTelemetryUiMapperTest {
 
     private fun BikeTelemetry.toUiModel() = toUiModel(
         locale = Locale.US,
-        zoneId = ZoneId.of("UTC")
+        zoneId = ZoneId.of("UTC"),
     )
 
     @Test

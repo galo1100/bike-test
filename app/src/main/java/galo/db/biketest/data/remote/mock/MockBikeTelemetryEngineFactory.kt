@@ -22,12 +22,21 @@ fun mockBikeTelemetryEngine(
 ): MockEngine = MockEngine { request ->
     delay(config.responseDelay)
     when {
-        request.url.encodedPath != bikeTelemetryPath -> respondError(HttpStatusCode.NotFound)
-        config.scenario == MockBikeTelemetryScenario.HTTP_ERROR ->
-            respondError(HttpStatusCode.ServiceUnavailable)
+        request.url.encodedPath != bikeTelemetryPath -> {
+            respondError(HttpStatusCode.NotFound)
+        }
 
-        config.scenario == MockBikeTelemetryScenario.MALFORMED -> respondJson(MALFORMED_BODY)
-        else -> respondJson(snapshot())
+        config.scenario == MockBikeTelemetryScenario.HTTP_ERROR -> {
+            respondError(HttpStatusCode.ServiceUnavailable)
+        }
+
+        config.scenario == MockBikeTelemetryScenario.MALFORMED -> {
+            respondJson(MALFORMED_BODY)
+        }
+
+        else -> {
+            respondJson(snapshot())
+        }
     }
 }
 

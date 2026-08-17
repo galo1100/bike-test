@@ -7,8 +7,8 @@ import galo.db.biketest.fixtures.FakeGetBikeTelemetry
 import galo.db.biketest.fixtures.MainDispatcherRule
 import galo.db.biketest.fixtures.bikeTelemetry
 import galo.db.biketest.fixtures.bikeTelemetryUiModel
-import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryAction
+import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest

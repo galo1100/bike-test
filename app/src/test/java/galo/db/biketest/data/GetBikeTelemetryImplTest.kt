@@ -29,7 +29,7 @@ class GetBikeTelemetryImplTest {
     private val getBikeTelemetry = GetBikeTelemetryImpl(
         client = NetworkModule.provideHttpClient(
             engine = engine,
-            json = NetworkModule.provideJson()
+            json = NetworkModule.provideJson(),
         ),
         dispatcher = testDispatcher,
     )

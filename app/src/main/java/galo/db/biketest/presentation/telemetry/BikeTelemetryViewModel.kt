@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import galo.db.biketest.domain.GetBikeTelemetry
-import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryAction
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryAction.Retry
+import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState.Content
 import galo.db.biketest.presentation.telemetry.entities.BikeTelemetryState.Error
 import galo.db.biketest.presentation.telemetry.mapper.toMessageRes

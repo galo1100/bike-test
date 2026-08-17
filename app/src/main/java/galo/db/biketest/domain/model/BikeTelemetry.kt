@@ -31,7 +31,8 @@ data class Battery(
 enum class ChargingState {
     CHARGING,
     DISCHARGING,
-    UNKNOWN;
+    UNKNOWN,
+    ;
 
     companion object {
         fun from(raw: String): ChargingState = enumFromRaw(raw, UNKNOWN)
@@ -54,7 +55,8 @@ enum class PowerMap {
     ENDURO,
     MOTOCROSS,
     SUPERMOTO,
-    UNKNOWN;
+    UNKNOWN,
+    ;
 
     companion object {
         fun from(raw: String): PowerMap = enumFromRaw(raw, UNKNOWN)
@@ -82,7 +84,8 @@ enum class Severity {
     INFO,
     WARNING,
     CRITICAL,
-    UNKNOWN;
+    UNKNOWN,
+    ;
 
     companion object {
         fun from(raw: String): Severity = enumFromRaw(raw, UNKNOWN)

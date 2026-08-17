@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import galo.db.biketest.data.remote.mock.MockBikeTelemetryConfig
 import galo.db.biketest.data.remote.mock.BikeTelemetrySnapshotAsset
+import galo.db.biketest.data.remote.mock.MockBikeTelemetryConfig
 import galo.db.biketest.data.remote.mock.mockBikeTelemetryEngine
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
@@ -39,7 +39,7 @@ object NetworkModule {
     @Singleton
     fun provideHttpClient(
         engine: HttpClientEngine,
-        json: Json
+        json: Json,
     ): HttpClient = HttpClient(engine) {
         expectSuccess = true
         install(ContentNegotiation) {
